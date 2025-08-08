@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Homelab Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showTab(tab) {
+            const all = document.querySelectorAll('.tab-view');
+            all.forEach(el => el.style.display = 'none');
+            document.getElementById(tab).style.display = 'block';
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(b => b.classList.remove('active'));
+            document.getElementById(tab + '-btn').classList.add('active');
+        }
+
+        window.onload = () => showTab('internal');
+    </script>
+</head>
+<body>
+    <h1>Homelab Dashboard</h1>
+
+    <div class="tabs">
+        <button id="internal-btn" class="tab-button" onclick="showTab('internal')">Internal</button>
+        <button id="external-btn" class="tab-button" onclick="showTab('external')">External</button>
+        <button id="public-btn" class="tab-button" onclick="showTab('public')">Public</button>
+    </div>
+
+    <!-- INTERNAL TAB -->
+    <div id="internal" class="tab-view">
+        <section>
+            <h2>UNRAID</h2>
+			<div class="link-grid">
+				<a href="http://192.168.1.44" target="_blank" class="link-tile">
+					<img src="icons/unraid.png" alt="unraid">
+					<div class="tile-text">
+						<span>UNRAID</span>
+						<small>192.168.1.44</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:32400" target="_blank" class="link-tile">
+					<img src="icons/plex.png" alt="Plex">
+					<div class="tile-text">
+						<span>Plex</span>
+						<small>192.168.1.44:32400</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:5055" target="_blank" class="link-tile">
+					<img src="icons/overseerr.png" alt="overseerr">
+					<div class="tile-text">
+						<span>Overseer</span>
+						<small>192.168.1.44:5055</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:5000" target="_blank" class="link-tile">
+					<img src="icons/cleanarr.png" alt="cleanarr">
+					<div class="tile-text">
+						<span>Cleanarr</span>
+						<small>192.168.1.44:5000</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:8888" target="_blank" class="link-tile">
+					<img src="icons/diskspeed.png" alt="diskspeed">
+					<div class="tile-text">
+						<span>Disk Speed</span>
+						<small>192.168.1.44:8888</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:444" target="_blank" class="link-tile">
+					<img src="icons/nextcloud.png" alt="nextcloud">
+					<div class="tile-text">
+						<span>Nextcloud</span>
+						<small>192.168.1.44:444</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:9696" target="_blank" class="link-tile">
+					<img src="icons/prowlarr.png" alt="prowlarr">
+					<div class="tile-text">
+						<span>Prowlarr</span>
+						<small>192.168.1.44:9696</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:7878" target="_blank" class="link-tile">
+					<img src="icons/radarr.png" alt="radarr">
+					<div class="tile-text">
+						<span>Radarr</span>
+						<small>192.168.1.44:7878</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:8080" target="_blank" class="link-tile">
+					<img src="icons/sab.png" alt="sab">
+					<div class="tile-text">
+						<span>SABNZB</span>
+						<small>192.168.1.44:8080</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:8989" target="_blank" class="link-tile">
+					<img src="icons/sonarr.png" alt="sonarr">
+					<div class="tile-text">
+						<span>Sonarr</span>
+						<small>192.168.1.44:8989</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:8181" target="_blank" class="link-tile">
+					<img src="icons/tautulli.png" alt="tautulli">
+					<div class="tile-text">
+						<span>Tautulli</span>
+						<small>192.168.1.44:8181</small>
+					</div>
+				</a>
+				<a href="http://192.168.1.44:8264" target="_blank" class="link-tile">
+					<img src="icons/tdarr.png" alt="tdarr">
+					<div class="tile-text">
+						<span>Tdarr</span>
+						<small>192.168.1.44:8264</small>
+					</div>
+				</a>
+			</div>
+        </section>
+
+        <section>
+            <h2>Dell C2100</h2>
+            <div class="link-grid">
+                <a href="http://192.168.1.43" target="_blank" class="link-tile">
+                    <img src="icons/proxmox.png" alt="Proxmox">
+                    <div class="tile-text">
+                        <span>Proxmox</span>
+                        <small>192.168.1.43</small>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- EXTERNAL TAB -->
+    <div id="external" class="tab-view">
+        <section>
+            <h2>UNRAID (Tailscale)</h2>
+            <div class="link-grid">
+                <a href="http://100.74.250.48" target="_blank" class="link-tile">
+                    <img src="icons/unraid.png" alt="unraid">
+                    <div class="tile-text">
+                        <span>UNRAID</span>
+                        <small>100.74.250.48</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:32400" target="_blank" class="link-tile">
+                    <img src="icons/plex.png" alt="Plex">
+                    <div class="tile-text">
+                        <span>Plex</span>
+                        <small>100.74.250.48:32400</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:5055" target="_blank" class="link-tile">
+                    <img src="icons/overseerr.png" alt="overseerr">
+                    <div class="tile-text">
+                        <span>Overseer</span>
+                        <small>100.74.250.48:5055</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:5000" target="_blank" class="link-tile">
+                    <img src="icons/cleanarr.png" alt="cleanarr">
+                    <div class="tile-text">
+                        <span>Cleanarr</span>
+                        <small>100.74.250.48:5000</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:8888" target="_blank" class="link-tile">
+                    <img src="icons/diskspeed.png" alt="diskspeed">
+                    <div class="tile-text">
+                        <span>Disk Speed</span>
+                        <small>100.74.250.48:8888</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:444" target="_blank" class="link-tile">
+                    <img src="icons/nextcloud.png" alt="nextcloud">
+                    <div class="tile-text">
+                        <span>Nextcloud</span>
+                        <small>100.74.250.48:444</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:9696" target="_blank" class="link-tile">
+                    <img src="icons/prowlarr.png" alt="prowlarr">
+                    <div class="tile-text">
+                        <span>Prowlarr</span>
+                        <small>100.74.250.48:9696</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:7878" target="_blank" class="link-tile">
+                    <img src="icons/radarr.png" alt="radarr">
+                    <div class="tile-text">
+                        <span>Radarr</span>
+                        <small>100.74.250.48:7878</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:8080" target="_blank" class="link-tile">
+                    <img src="icons/sab.png" alt="sab">
+                    <div class="tile-text">
+                        <span>SABNZB</span>
+                        <small>100.74.250.48:8080</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:8989" target="_blank" class="link-tile">
+                    <img src="icons/sonarr.png" alt="sonarr">
+                    <div class="tile-text">
+                        <span>Sonarr</span>
+                        <small>100.74.250.48:8989</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:8181" target="_blank" class="link-tile">
+                    <img src="icons/tautulli.png" alt="tautulli">
+                    <div class="tile-text">
+                        <span>Tautulli</span>
+                        <small>100.74.250.48:8181</small>
+                    </div>
+                </a>
+				<a href="http://100.74.250.48:8264" target="_blank" class="link-tile">
+                    <img src="icons/tdarr.png" alt="tdarr">
+                    <div class="tile-text">
+                        <span>Tdarr</span>
+                        <small>100.74.250.48:8264</small>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section>
+            <h2>Dell C2100 (Tailscale)</h2>
+            <div class="link-grid">
+                <a href="http://100.113.235.116:8006" target="_blank" class="link-tile">
+                    <img src="icons/proxmox.png" alt="proxmox">
+                    <div class="tile-text">
+                        <span>Proxmox</span>
+                        <small>100.113.235.116:8006</small>
+                    </div>
+                </a>
+				<a href="http://100.119.207.7" target="_blank" class="link-tile">
+                    <img src="icons/premier-league.png" alt="predictions">
+                    <div class="tile-text">
+                        <span>Predictions</span>
+                        <small>100.119.207.7</small>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- PUBLIC TAB -->
+    <div id="public" class="tab-view">
+        <section>
+			<h2>Public Services</h2>
+			<div class="link-grid">
+				<a href="https://predictions.mediaservers.co.uk" target="_blank" class="link-tile">
+					<img src="icons/premier-league.png" alt="predictions">
+					<div class="tile-text">
+						<span>Predictions</span>
+						<small>predictions.mediaservers.co.uk</small>
+					</div>
+				</a>
+				<a class="link-tile disabled">
+					<img src="icons/quiz.jpg" alt="Quiz">
+					<div class="tile-text">
+						<span>Quiz Site</span>
+						<small>quiz.mediaservers.co.uk</small>
+					</div>
+				</a>
+			</div>
+        </section>
+    </div>
+</body>
+</html>
